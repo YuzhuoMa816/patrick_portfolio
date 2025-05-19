@@ -5,28 +5,14 @@
 
 import { ButtonPrimary } from "./Button";
 import { useLenis } from "lenis/react";
+import React from "react";
 
 const sitemap = [
-  {
-    label: "Home",
-    href: "#home",
-  },
-  {
-    label: "About",
-    href: "#about",
-  },
-  {
-    label: "Work",
-    href: "#work",
-  },
-  {
-    label: "Reviews",
-    href: "#reviews",
-  },
-  {
-    label: "Contact me",
-    href: "#contact",
-  },
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Contact me", href: "#contact" },
 ];
 
 const socials = [
@@ -38,19 +24,20 @@ const socials = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/yuzhuo-ma-patrick",
   },
-
   {
     label: "Instagram",
     href: "https://www.instagram.com/ma_yuzhuo/",
   },
 ];
-import React from "react";
 
 const Footer = () => {
   const lenis = useLenis();
 
-  const handleNavite = (e) => {
+  const handleClick = (e, href) => {
     e.preventDefault();
+    if (lenis && href) {
+      lenis.scrollTo(href);
+    }
   };
 
   return (
@@ -59,7 +46,7 @@ const Footer = () => {
         <div className="lg:grid lg:grid-cols-2">
           <div className="mb-10">
             <h2 className="headline-1 mb-8 lg:max-w-[12ch]">
-              Let's work together!{" "}
+              Let's work together!
             </h2>
 
             <ButtonPrimary
@@ -77,6 +64,7 @@ const Footer = () => {
                   <li key={key}>
                     <a
                       href={href}
+                      onClick={(e) => handleClick(e, href)}
                       className="block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200"
                     >
                       {label}
@@ -94,6 +82,7 @@ const Footer = () => {
                     <a
                       href={href}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200"
                     >
                       {label}
@@ -104,9 +93,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="flex items-center justify-between pt-10 mb-8">
-          <a href="" className="">
-            <img src="public/logo.svg" width={40} height={40} alt="Logo"></img>
+          <a href="/">
+            <img src="/logo.svg" width={40} height={40} alt="Logo" />
           </a>
           <p className="text-zinc-500 text-sm">
             &copy; 2025 <span className="text-zinc-200">Patrick Ma</span>
