@@ -4,6 +4,8 @@
  */
 
 import { ButtonPrimary } from "./Button";
+import { useLenis } from "lenis/react";
+
 const sitemap = [
   {
     label: "Home",
@@ -45,6 +47,12 @@ const socials = [
 import React from "react";
 
 const Footer = () => {
+  const lenis = useLenis();
+
+  const handleNavite = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <footer className="section">
       <div className="container">

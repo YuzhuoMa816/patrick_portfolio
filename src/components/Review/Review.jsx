@@ -3,29 +3,26 @@
  * @license Apache-2.0
  */
 
-import React from "react";
 import ReviewCard from "./ReviewCard";
 const reviews = [
   {
     content:
-      "Exceptional web development! Delivered a seamless, responsive site with clean code and great UX.",
-    name: "Sophia Ramirez",
-    imgSrc: "/images/people-1.jpg",
-    company: "PixelForge",
+      "A highly dependable team member who played a key role in building our AI training platform. Demonstrated strong backend skills, clear communication, and delivered robust features",
+    name: "Bing Wang",
+    company: "HIT AI Research Co., Ltd",
   },
   {
     content:
       "Exceptional web development! Delivered a seamless, responsive site with clean code and great UX.",
-    name: "Sophia Ramirez",
-    imgSrc: "/images/people-1.jpg",
-    company: "PixelForge",
+    name: "Mari Robert",
+    company: "CEO of InflaMed",
   },
+
   {
     content:
-      "Exceptional web development! Delivered a seamless, responsive site with clean code and great UX.",
-    name: "Sophia Ramirez",
-    imgSrc: "/images/people-1.jpg",
-    company: "PixelForge",
+      "Impressive MVP delivery! The app ran smoothly and mirrored the final product with precision — a testament to thoughtful architecture and reliable execution.",
+    name: "Larry Yu",
+    company: "Sys Architecture in Recam",
   },
 ];
 const Review = () => {
@@ -35,11 +32,10 @@ const Review = () => {
         <h2 className="headline-2 mb-8">From My Team & Clients</h2>
 
         <div className="flex items-stretch gap-3 w-fit">
-          {reviews.map(({ content, name, imgSrc, company }, key) => (
+          {reviews.map(({ content, name, company }, key) => (
             <ReviewCard
               key={key}
               name={name}
-              imgSrc={imgSrc}
               company={company}
               content={content}
             />

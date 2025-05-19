@@ -3,79 +3,65 @@
  * @license Apache-2.0
  */
 
-import { useRef, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useLenis } from "lenis/react";
-const Navbar = ({ navOpen }) => {
-  const lastActiveLink = useRef();
 
+const navItems = [
+  { label: "Home", link: "#home" },
+  { label: "About", link: "#about" },
+  { label: "Work", link: "#work" },
+  { label: "Reviews", link: "#reviews" },
+  { label: "Contact", link: "#contact", className: "md:hidden" },
+];
+
+const Navbar = ({ navOpen }) => {
+  const lenis = useLenis();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const linkRefs = useRef([]);
   const activeBox = useRef();
 
-  const lenis = useLenis();
+  useEffect(() => {
+    updateActiveBoxPosition(activeIndex);
+    window.addEventListener("resize", () =>
+      updateActiveBoxPosition(activeIndex)
+    );
+    return () =>
+      window.removeEventListener("resize", () =>
+        updateActiveBoxPosition(activeIndex)
+      );
+  }, [activeIndex]);
 
-  const initActiveBox = () => {
-    activeBox.current.style.top = lastActiveLink.current.offsetTop + "px";
-    activeBox.current.style.left = lastActiveLink.current.offsetLeft + "px";
-    activeBox.current.style.width = lastActiveLink.current.offsetWidth + "px";
+  const updateActiveBoxPosition = (index) => {
+    const target = linkRefs.current[index];
+    if (!target || !activeBox.current) return;
 
-    activeBox.current.style.height = lastActiveLink.current.offsetHeight + "px";
+    const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = target;
+    Object.assign(activeBox.current.style, {
+      top: `${offsetTop}px`,
+      left: `${offsetLeft}px`,
+      width: `${offsetWidth}px`,
+      height: `${offsetHeight}px`,
+    });
   };
 
-  useEffect(initActiveBox, []);
-
-  window.addEventListener("resize", initActiveBox);
-
-  const activeCurrentLink = (event) => {
-    lastActiveLink.current?.classList.remove("active");
-    event.target.classList.add("active");
-    lastActiveLink.current = event.target;
-
-    activeBox.current.style.top = event.target.offsetTop + "px";
-    activeBox.current.style.left = event.target.offsetLeft + "px";
-    activeBox.current.style.width = event.target.offsetWidth + "px";
-
-    activeBox.current.style.height = event.target.offsetHeight + "px";
+  const handleClick = (e, index, target) => {
+    e.preventDefault();
+    setActiveIndex(index);
+    lenis.scrollTo(target);
   };
-
-  const navItems = [
-    {
-      label: "Home",
-      link: "#home",
-      className: "nav-link active",
-      ref: lastActiveLink,
-    },
-    {
-      label: "About",
-      link: "#about",
-      className: "nav-link",
-    },
-    {
-      label: "Work",
-      link: "#work",
-      className: "nav-link",
-    },
-    {
-      label: "Reviews",
-      link: "#reviews",
-      className: "nav-link",
-    },
-    {
-      label: "Contact",
-      link: "#contact",
-      className: "nav-link md:hidden",
-    },
-  ];
 
   return (
     <nav className={`navbar ${navOpen ? "active" : ""}`}>
-      {" "}
-      {navItems.map(({ label, link, className, ref }, key) => (
+      {navItems.map(({ label, link, className }, index) => (
         <a
+          key={index}
           href={link}
-          key={key}
-          ref={ref}
-          className={className}
-          onClick={activeCurrentLink}
+          ref={(el) => (linkRefs.current[index] = el)}
+          className={`nav-link ${className || ""} ${
+            index === activeIndex ? "active" : ""
+          }`}
+          onClick={(e) => handleClick(e, index, link)}
         >
           {label}
         </a>
@@ -85,7 +71,7 @@ const Navbar = ({ navOpen }) => {
   );
 };
 
-Navbar.PropTypes = {
+Navbar.propTypes = {
   navOpen: PropTypes.bool.isRequired,
 };
 
