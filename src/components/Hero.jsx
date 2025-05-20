@@ -4,12 +4,22 @@
  */
 
 import React from "react";
+import { useLenis } from "lenis/react";
 /**
  *  Components
  */
 import { ButtonPrimary, ButtonOutline } from "./Button";
-
+import ScrollButton from "../ScrollButton";
 const Hero = () => {
+  const lenis = useLenis();
+
+  const handleScrollClick = (e, href) => {
+    e.preventDefault();
+    if (lenis && href) {
+      lenis.scrollTo(href);
+    }
+  };
+
   return (
     <section id="home" className="pt-28 lg:pt-36">
       <div className="container items-center lg:grid lg:grid-cols-2  lg:gap-10">
@@ -44,6 +54,7 @@ const Hero = () => {
               href="#about"
               label="Scroll Down"
               icon="arrow_downward"
+              onClick={(e) => handleScrollClick(e, "#about")}
             />
           </div>
         </div>

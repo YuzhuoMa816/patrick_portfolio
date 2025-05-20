@@ -24,6 +24,12 @@ const reviews = [
     name: "Larry Yu",
     company: "Sys Architecture in Recam",
   },
+  {
+    content:
+      "Impressive MVP delivery! The app ran smoothly and mirrored the final product with precision — a testament to thoughtful architecture and reliable execution.",
+    name: "Larry Yu",
+    company: "Sys Architecture in Recam",
+  },
 ];
 const Review = () => {
   return (
