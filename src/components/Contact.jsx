@@ -42,24 +42,6 @@ const socialLinks = [
     ),
     alt: "LinkedIn",
   },
-  {
-    href: "https://www.instagram.com/ma_yuzhuo/",
-    icon: (
-      <svg
-        width="25"
-        height="24"
-        viewBox="0 0 25 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8.75 2.5C5.58319 2.5 3 5.08319 3 8.25V15.75C3 18.9164 5.5831 21.5 8.75 21.5H16.25C19.4165 21.5 22 18.9165 22 15.75V8.25C22 5.0831 19.4164 2.5 16.25 2.5H8.75ZM8.75 4H16.25C18.6056 4 20.5 5.8939 20.5 8.25V15.75C20.5 18.1055 18.6055 20 16.25 20H8.75C6.3939 20 4.5 18.1056 4.5 15.75V8.25C4.5 5.89381 6.39381 4 8.75 4ZM17.5 6C16.9475 6 16.5 6.4475 16.5 7C16.5 7.5525 16.9475 8 17.5 8C18.0525 8 18.5 7.5525 18.5 7C18.5 6.4475 18.0525 6 17.5 6ZM12.5 7C9.74759 7 7.5 9.24759 7.5 12C7.5 14.7524 9.74759 17 12.5 17C15.2524 17 17.5 14.7524 17.5 12C17.5 9.24759 15.2524 7 12.5 7ZM12.5 8.5C14.4416 8.5 16 10.0584 16 12C16 13.9416 14.4416 15.5 12.5 15.5C10.5584 15.5 9 13.9416 9 12C9 10.0584 10.5584 8.5 12.5 8.5Z"
-          fill="currentColor"
-        />
-      </svg>
-    ),
-    alt: "Instagram",
-  },
 ];
 const Contact = () => {
   return (
@@ -69,10 +51,25 @@ const Contact = () => {
           <h2 className="headline-2 lg:max-w-[12ch]">Contact Me</h2>
 
           <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch] lg:max-w-[30ch]">
-            I’m always open to exciting opportunities and collaborations. If
+            I’m currently open to exciting opportunities and collaborations. If
             you’re hiring or would like to work together, feel free to get in
             touch.
           </p>
+          <a
+            href="mailto:yuzhuo.ma816@gmail.com"
+            className="flex items-center gap-2 mt-3 text-zinc-300 hover:text-white transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v2l-10 6L2 6V4zm0 4.25l9.55 5.73a1 1 0 001.1 0L22 8.25V20a2 2 0 01-2 2H4a2 2 0 01-2-2V8.25z" />
+            </svg>
+            yuzhuo.ma816@gmail.com
+          </a>
 
           <div className="flex items-center gap-2 mt-auto">
             {socialLinks.map(({ href, icon }, key) => (
@@ -118,7 +115,7 @@ const Contact = () => {
                 id="email"
                 autoComplete="email"
                 required
-                placeholder="Patrick@example.com"
+                placeholder="youremail@example.com"
                 className="text-field"
               ></input>
             </div>
