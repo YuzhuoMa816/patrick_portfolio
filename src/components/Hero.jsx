@@ -27,7 +27,7 @@ const Hero = () => {
           <div className="flex items-center gap-3">
             <figure className="img-box w-9 h-9 rounded-lg">
               <img
-                src="/Patrick_Photo.jpeg"
+                src="/Patrick_photo.png"
                 width={40}
                 height={40}
                 alt=""
@@ -71,7 +71,7 @@ const Hero = () => {
            to-65% rounded-[60px] overflow-hidden"
           >
             <img
-              src="/Patrick_photo_banner.png"
+              src="/patrick_photo_banner.png"
               alt="Patrick Ma photo"
               width={655}
               height={800}

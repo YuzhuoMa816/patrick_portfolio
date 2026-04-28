@@ -23,16 +23,16 @@ const About = () => {
             className="text-zinc-300 mb-4 md:mb-8
           md-text-xl md:max-w-7xl"
           >
-            I am an emerging full-stack developer with 3 years of industry
-            experience and a strong academic background, including scholarships,
-            project awards, and a distinction from the University of Melbourne.
-            I have a proven track record of building full-stack SaaS web
-            applications from the ground up to successful deployment, and
-            contributing effectively to ongoing team projects. I consistently
-            write clean, well-structured code across the full software
-            development lifecycle (SDLC), and am recognised for strong
-            communication, collaborative teamwork, and a willingness to embrace
-            new challenges.
+            Full-stack developer with 2 years of industry experience across
+            frontend, backend, API integration, production support, and
+            deployment workflows. Experienced in building and maintaining
+            SaaS-style web applications. I also have hands-on experience with
+            DevOps and operational practices, including CI/CD pipelines,
+            controlled releases, troubleshooting production issues, and
+            supporting reliable system operations. I am recognised for writing
+            clean, maintainable code, strong communication, collaborative
+            teamwork, and the ability to adapt quickly across development,
+            support, and operational environments.{" "}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 md:gap-7">
