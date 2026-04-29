@@ -26,13 +26,14 @@ const About = () => {
             Full-stack developer with 2 years of industry experience across
             frontend, backend, API integration, production support, and
             deployment workflows. Experienced in building and maintaining
-            SaaS-style web applications. I also have hands-on experience with
-            DevOps and operational practices, including CI/CD pipelines,
-            controlled releases, troubleshooting production issues, and
-            supporting reliable system operations. I am recognised for writing
-            clean, maintainable code, strong communication, collaborative
-            teamwork, and the ability to adapt quickly across development,
-            support, and operational environments.{" "}
+            SaaS-style web applications. <br /> <br />I also have hands-on
+            experience with DevOps and operational practices, including CI/CD
+            pipelines, controlled releases, troubleshooting production issues,
+            and supporting reliable system operations. <br /> <br /> I am
+            recognised for writing clean, maintainable code, strong
+            communication, collaborative teamwork, and the ability to adapt
+            quickly across development, support, and operational
+            environments.{" "}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 md:gap-7">
